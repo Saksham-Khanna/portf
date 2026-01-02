@@ -4,6 +4,7 @@ const projects = [
   {
     title: "Breast Cancer Prediction",
     repo: "https://github.com/Saksham-Khanna/Breast-Cancer-pred",
+    live: "",
     tech: "Python, Machine Learning, Flask",
     desc: "Machine learning model to diagnose breast cancer from cell data.",
     img: "/projects/breast_cancer.png",
@@ -11,6 +12,7 @@ const projects = [
   {
     title: "Learning Management Platform",
     repo: "https://github.com/Saksham-Khanna/Learning-Management-Platform",
+    live: "",
     tech: "React, Node.js, Express, MongoDB",
     desc: "A complete LMS platform with authentication & course management.",
     img: "/projects/lms.png",
@@ -18,6 +20,7 @@ const projects = [
   {
     title: "ATS Tracker App",
     repo: "https://github.com/Saksham-Khanna/ATS-tracker",
+    live: "",
     tech: "Python, NLP, Tkinter",
     desc: "ATS-based resume tracking system to optimize resume compatibility.",
     img: "/projects/ats.png",
@@ -25,6 +28,7 @@ const projects = [
   {
     title: "Bus Booking System",
     repo: "https://github.com/Saksham-Khanna/intellij-Bus_booking",
+    live: "",
     tech: "Java, JDBC, MySQL",
     desc: "Java-based bus reservation system with customer booking management.",
     img: "/projects/bus.png",
@@ -32,6 +36,7 @@ const projects = [
   {
     title: "Diabetes Prediction",
     repo: "https://github.com/Saksham-Khanna/diabetic-pred",
+    live: "https://your-diabetes-app.vercel.app",
     tech: "Python, Streamlit, ML",
     desc: "Interactive web-based diabetes prediction using ML algorithms.",
     img: "/projects/diabetes.png",
@@ -39,9 +44,20 @@ const projects = [
   {
     title: "Movie Recommendation System",
     repo: "https://github.com/Saksham-Khanna/movie-rec-sys",
+    live: "",
     tech: "Python, Pandas, KNN",
     desc: "Personalized movie recommendations based on user preferences.",
     img: "/projects/movie.png",
+  },
+
+  /* ===== BASIC FRONTEND STATIC SITE (NEW) ===== */
+  {
+    title: "FitLife – Health & Fitness Website",
+    repo: "",
+    live: "https://fitlife-health-app.netlify.app/",
+    tech: "HTML, CSS, JavaScript",
+    desc: "Responsive static health & fitness website with clean UI and smooth navigation.",
+    img: "/projects/placeholder.png",
   },
 ];
 
@@ -66,39 +82,59 @@ export default function Projects() {
               <div
                 className="card-img-top"
                 style={{
-                  backgroundImage: `url(${
-                    project.img || "/projects/default.jpg"
-                  })`,
+                  backgroundImage: `url(${project.img || "/projects/default.jpg"})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   height: "180px",
                   borderRadius: "14px 14px 0 0",
                 }}
               />
-  
-              <div className="card-body">
+
+              <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{project.title}</h5>
                 <p className="card-text text-muted">{project.desc}</p>
+
                 <p>
                   <span className="badge rounded-pill bg-light text-dark border">
                     {project.tech}
                   </span>
                 </p>
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-gradient mt-2 w-100 btn-arrow"
-                >
-                  View on GitHub
-                </a>
+
+                {/* DEPLOYMENT STATUS */}
+                <div className="mt-2 mb-2">
+                  <small className="text-muted fw-semibold">Deployment:</small>{" "}
+                  {project.live ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="fw-bold"
+                      style={{ color: "#ff6a3d", textDecoration: "none" }}
+                    >
+                      Live Demo
+                    </a>
+                  ) : (
+                    <span className="text-muted">Not Deployed</span>
+                  )}
+                </div>
+
+                {/* GITHUB BUTTON (only if repo exists) */}
+                {project.repo && (
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-gradient mt-auto w-100 btn-arrow"
+                  >
+                    View on GitHub
+                  </a>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Show more button */}
       <div className="text-center mt-4">
         {!showAll ? (
           <button
