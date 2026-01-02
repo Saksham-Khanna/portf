@@ -49,16 +49,6 @@ const projects = [
     desc: "Personalized movie recommendations based on user preferences.",
     img: "/projects/movie.png",
   },
-
-  /* ===== BASIC FRONTEND STATIC SITE (NEW) ===== */
-  {
-    title: "FitLife – Health & Fitness Website",
-    repo: "",
-    live: "https://fitlife-health-app.netlify.app/",
-    tech: "HTML, CSS, JavaScript",
-    desc: "Responsive static health & fitness website with clean UI and smooth navigation.",
-    img: "/projects/placeholder.png",
-  },
 ];
 
 export default function Projects() {
@@ -118,17 +108,15 @@ export default function Projects() {
                   )}
                 </div>
 
-                {/* GITHUB BUTTON (only if repo exists) */}
-                {project.repo && (
-                  <a
-                    href={project.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-gradient mt-auto w-100 btn-arrow"
-                  >
-                    View on GitHub
-                  </a>
-                )}
+                {/* GITHUB BUTTON */}
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gradient mt-auto w-100 btn-arrow"
+                >
+                  View on GitHub
+                </a>
               </div>
             </div>
           </div>
@@ -155,3 +143,5 @@ export default function Projects() {
     </section>
   );
 }
+
+
