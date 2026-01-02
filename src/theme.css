@@ -432,3 +432,21 @@ section {
 .contact-item:hover .contact-icon {
   transform: scale(1.18);
 }
+
+/* ============================================
+   NAVBAR PROFILE AVATAR
+============================================ */
+.navbar-profile-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--primary);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.navbar-profile-avatar:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 16px rgba(255, 106, 61, 0.45);
+}
